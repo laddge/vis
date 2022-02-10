@@ -16,11 +16,12 @@ if not found:
     exit(1)
 print()
 fstfnd = True
-for i in found:
+for index, i in enumerate(found):
     if fstfnd:
         fstfnd = False
     else:
-        print("-" * shutil.get_terminal_size().columns)
+        if i - 1 != found[index - 1]:
+            print("-" * shutil.get_terminal_size().columns)
     lnum = (" " * len(str(max(found))) + str(i + 1))[-1 - len(str(max(found))):]
     lcon = INPUT[i].replace(SRSTR, "\033[07m{}\033[0m".format(SRSTR))
     print("\033[07;1m{} \033[0m {}".format(lnum, lcon))
