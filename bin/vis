@@ -6,6 +6,9 @@
 
 import sys
 import shutil
+if sys.stdin.isatty() or len(sys.argv) != 2:
+    print("echo hoge | vis STR")
+    exit(1)
 INPUT = sys.stdin.read().split("\n")
 SRSTR = sys.argv[1]
 found = []
