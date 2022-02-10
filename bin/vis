@@ -22,5 +22,6 @@ for i in found:
     else:
         print("-" * shutil.get_terminal_size().columns)
     lnum = (" " * len(str(max(found))) + str(i + 1))[-1 - len(str(max(found))):]
-    print("\033[07;1m{} \033[0m {}".format(lnum, INPUT[i].replace(SRSTR, "\033[07m{}\033[0m".format(SRSTR))))
+    lcon = INPUT[i].replace(SRSTR, "\033[07m{}\033[0m".format(SRSTR))
+    print("\033[07;1m{} \033[0m {}".format(lnum, lcon))
 print()
